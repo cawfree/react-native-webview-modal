@@ -14,6 +14,7 @@ const WebViewModal = forwardRef(
       onMessage,
       scrollEnabled,
       injectedJavaScript,
+      style,
       ...extras
     },
     ref,
@@ -45,7 +46,7 @@ const WebViewModal = forwardRef(
           <WebView
             {...extras}
             ref={ref}
-            style={StyleSheet.absoluteFill}
+            style={[StyleSheet.absoluteFill, StyleSheet.flatten(style))}
             source={source}
             onMessage={onMessage}
             scrollEnabled={scrollEnabled}
@@ -67,6 +68,7 @@ WebViewModal.propTypes = {
   onMessage: PropTypes.func,
   scrollEnabled: PropTypes.bool,
   injectedJavaScript: PropTypes.string,
+  style: PropTypes.any,
 };
 
 WebViewModal.defaultProps = {
@@ -74,6 +76,7 @@ WebViewModal.defaultProps = {
   onMessage: () => null,
   scrollEnabled: false,
   injectedJavaScript: "",
+  style: {},
 };
 
 export default React.memo(WebViewModal);
