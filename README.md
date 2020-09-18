@@ -19,8 +19,8 @@ yarn add react-native-webview-modal
 You're required to declare a [`<WebViewModalProvider />`](https://github.com/cawfree/react-native-webview-modal/blob/main/src/components/WebViewModal.js) at the root of your application. This is because the `react-native-webview-modal` _does not_ use React Native's built in [`<Modal />`](https://reactnative.dev/docs/modal) component.
 
 ```javascript
-import React, { useState } from 'react';
-import { SafeAreaView, StyleSheet, View, Button } from 'react-native';
+import React, { useState } from "react";
+import { SafeAreaView, StyleSheet, View, Button } from "react-native";
 
 import WebViewModalProvider, { WebViewModal } from "react-native-webview-modal";
 
