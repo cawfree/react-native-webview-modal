@@ -46,7 +46,7 @@ const WebViewModal = forwardRef(
           <WebView
             {...extras}
             ref={ref}
-            style={[StyleSheet.absoluteFill, StyleSheet.flatten(style))}
+            style={[StyleSheet.absoluteFill, StyleSheet.flatten(style)]}
             source={source}
             onMessage={onMessage}
             scrollEnabled={scrollEnabled}
