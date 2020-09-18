@@ -11,7 +11,7 @@ This helps provide a more native feeling experience when handing over to web-def
 ## 🚀 Getting Started
 
 ```
-yarn add react-native-webview-modal
+yarn add react-native-webview react-native-webview-modal 
 ```
 
 ## ✍️ Example
