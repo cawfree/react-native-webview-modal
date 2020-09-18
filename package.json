@@ -1,6 +1,6 @@
 {
   "name": "react-native-webview-modal",
-  "version": "0.0.1-alpha.4",
+  "version": "0.0.1-alpha.5",
   "description": "⚛️ A WebView <Modal /> component for React Native, where the source content is pre-loaded for speed 🏁. (iOS/Android/Web/Expo)",
   "main": "dist",
   "repository": "https://github.com/cawfree/react-native-webview-modal",
