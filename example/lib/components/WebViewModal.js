@@ -1,22 +1,24 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import PropTypes from "prop-types";
 import { StyleSheet, Platform } from "react-native";
 
 import WebView from "./WebView";
 import Modal from "./Modal";
 
-function WebViewModal({
-  visible,
-  source,
-  originWhitelist,
-  onMessage,
-  scrollEnabled,
-  injectedJavaScript,
-  onDismiss,
-  onRequestClose,
-  animationType,
-}) {
-  return (
+const WebViewModal = forwardRef(
+  (
+    {
+      visible,
+      source,
+      onMessage,
+      scrollEnabled,
+      injectedJavaScript,
+      onDismiss,
+      onRequestClose,
+      animationType,
+    },
+    ref,
+  ) => (
     <Modal
       animationType={animationType}
       transparent
@@ -27,16 +29,18 @@ function WebViewModal({
       hardwareAccelerated={Platform.OS !== "web"}
     >
       <WebView
+        ref={ref}
         style={StyleSheet.absoluteFill}
-        originWhitelist={originWhitelist}
         source={source}
         onMessage={onMessage}
         scrollEnabled={scrollEnabled}
         injectedJavaScript={injectedJavaScript}
       />
     </Modal>
-  );
-}
+  ),
+);
+
+WebViewModal.displayName = "WebViewModal";
 
 WebViewModal.propTypes = {
   visible: PropTypes.bool,
@@ -44,7 +48,6 @@ WebViewModal.propTypes = {
     PropTypes.shape({ uri: PropTypes.string.isRequired }),
     PropTypes.shape({ html: PropTypes.string.isRequired }),
   ]),
-  originWhitelist: PropTypes.arrayOf(PropTypes.string),
   onMessage: PropTypes.func,
   scrollEnabled: PropTypes.bool,
   injectedJavaScript: PropTypes.string,
@@ -56,7 +59,6 @@ WebViewModal.propTypes = {
 WebViewModal.defaultProps = {
   visible: false,
   source: {},
-  originWhitelist: [],
   onMessage: () => null,
   scrollEnabled: false,
   injectedJavaScript: "",
@@ -65,4 +67,4 @@ WebViewModal.defaultProps = {
   animationType: "slide",
 };
 
-export default WebViewModal;
+export default React.memo(WebViewModal);

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Button } from 'react-native';
+import { SafeAreaView, StyleSheet, View, Button } from 'react-native';
 
-import { WebViewModal } from "./lib";
+import { WebViewModal, WebView } from "./lib";
 
 export default function App() {
   const [visible, setVisible] = useState(false);
   return (
     <View style={StyleSheet.absoluteFill}>
+      <SafeAreaView />
       <Button
         title="Open"
         onPress={() => setVisible(true)}
@@ -14,12 +15,8 @@ export default function App() {
       <WebViewModal
         visible={visible}
         source={{
-          html: "https://lottiefiles.com"
+          uri: "https://google.com"
         }}
-        animationType="fade"
-        injectedJavaScript={`
-console.log('iya');
-        `}
       />
     </View>
   );
