@@ -1,5 +1,8 @@
 # react-native-webview-modal
-⚛️ A WebView &lt;Modal /> component for React Native, where the source content is pre-loaded for speed 🏁. (iOS/Android/Web/Expo)
+
+
+
+⚛️ A `<WebViewModal />` component for [**React Native**](https://reactnative.dev), where the source content is pre-loaded for speed 🏁.  Supports iOS/Android/Web/Expo.  
 
 Using [react-native-webview-modal](https://github.com/cawfree/react-native-webview-modal), you can embed content which can be presented _without_ waiting for the page actually load. This is achieved by effectively pre-caching the render result and not making this visible until the modal is ready.
 
@@ -13,7 +16,7 @@ yarn add react-native-webview-modal
 
 ## ✍️ Example
 
-You're required to declare a `<WebViewModalProvider />` at the root of your application. This is because the `react-native-webview-modal` _does not_ use React Native's built in [`<Modal />`]() component.
+You're required to declare a [`<WebViewModalProvider />`](https://github.com/cawfree/react-native-webview-modal/blob/main/src/components/WebViewModal.js) at the root of your application. This is because the `react-native-webview-modal` _does not_ use React Native's built in [`<Modal />`](https://reactnative.dev/docs/modal) component.
 
 ```javascript
 import React, { useState } from 'react';
