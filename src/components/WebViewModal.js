@@ -20,6 +20,9 @@ const WebViewModal = forwardRef(
     ref,
   ) => {
     const { width, height } = useWindowDimensions();
+    const [position] = useState(
+      () => Platform.select({ ios: "absolute", android: "absolute", web: "fixed" }),
+    );
     const [animTranslate] = useState(() => new Animated.Value(1));
     useEffect(
       () => {
@@ -33,7 +36,7 @@ const WebViewModal = forwardRef(
         ).start();
       },
       [animTranslate, visible],
-    );
+    ); 
     return (
       <BlackPortal name="react-native-webview-modal">
         <Animated.View
@@ -41,6 +44,7 @@ const WebViewModal = forwardRef(
           style={[
             StyleSheet.absoluteFill,
             { transform: [{ translateY: Animated.multiply(animTranslate, height) }] },
+            { position },
           ]}
         >
           <WebView

@@ -9,14 +9,8 @@ export default function App() {
     <WebViewModalProvider>
       <View style={StyleSheet.absoluteFill}>
         <SafeAreaView />
-        <Button
-          title="Open"
-          onPress={() => setVisible(true)}
-        />
-        <WebViewModal
-          visible={visible}
-          source={{ uri: "https://google.com" }}
-        />
+        <Button title="Open" onPress={() => setVisible(true)} />
+        <WebViewModal visible={visible} source={{ uri: "http://localhost:3000/wyre/verify" }} />
       </View>
     </WebViewModalProvider>
   );
